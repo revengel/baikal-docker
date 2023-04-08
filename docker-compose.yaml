@@ -1,0 +1,18 @@
+version: "3.9"
+
+# VOLUME /var/www/baikal/config
+# VOLUME /var/www/baikal/Specific
+
+volumes:
+  baikal-config:
+  baikal-specific:
+
+services:
+  baikal:
+    build:
+      context: .
+    ports:
+      - "0.0.0.0:7002:80"
+    volumes:
+      - "baikal-config:/var/www/baikal/config"
+      - "baikal-specific:/var/www/baikal/Specific"
